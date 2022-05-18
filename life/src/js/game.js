@@ -1,4 +1,4 @@
-import { generateCellSurroundings } from "./utils";
+import { generateCellSurroundings, randomDeadOrAlive } from "./utils";
 import { Visualiser } from "./visualiser";
 import { board } from "./board";
 
@@ -7,6 +7,7 @@ export class Game {
 		this.board = board;
 		this.button1 = document.getElementsByClassName("button")[0];
 		this.button2 = document.getElementsByClassName("button")[1];
+		this.button3 = document.getElementsByClassName("button")[2];
 		this.cellSurroundings = generateCellSurroundings();
 		this.visualiser = new Visualiser(board);
 		this.X = board[0].length;
@@ -21,6 +22,11 @@ export class Game {
 		});
 
 		this.button2.addEventListener("click", () => {
+			this.randomise();
+			this.visualiser.updateBoard(this.board);
+		});
+
+		this.button3.addEventListener("click", () => {
 			window.location.reload();
 		});
 	};
@@ -45,6 +51,14 @@ export class Game {
 		) {
 			return true;
 		} else return false;
+	};
+
+	randomise = () => {
+		for (let x = 0; x < this.X; x++) {
+			for (let y = 0; y < this.Y; y++) {
+				this.board[x][y] = randomDeadOrAlive();
+			}
+		}
 	};
 
 	lifeCycle = () => {

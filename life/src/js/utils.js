@@ -8,4 +8,9 @@ const generateCellSurroundings = () => {
 	return result;
 };
 
-export { generateCellSurroundings };
+const randomDeadOrAlive = () => {
+	let random = Math.floor(Math.random() * 10 + 1);
+	return random <= 5 ? 1 : 0;
+};
+
+export { generateCellSurroundings, randomDeadOrAlive };
