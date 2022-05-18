@@ -1,0 +1,57 @@
+* {
+	box-sizing: border-box;
+}
+
+main {
+	margin: 100px;
+	& #board {
+		float: left;
+		& .line {
+			display: block;
+
+			// width: 520px;
+			// height: 10px;
+
+			& .dead {
+				background-color: white;
+			}
+			& .live {
+				background-color: green;
+			}
+		}
+		& .tile {
+			display: block;
+			width: 20px;
+			height: 20px;
+			float: left;
+			border: 1px solid rgb(211, 211, 211);
+		}
+		& .ball::after {
+			content: "";
+			background-color: red;
+			width: 25px;
+			height: 25px;
+			display: block;
+			border-radius: 50%;
+			position: absolute;
+			margin: 10px;
+		}
+	}
+	& .button {
+		float: left;
+		display: block;
+		padding: 20px;
+		margin-left: 50px;
+		background-color: rgb(16, 59, 134);
+		font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+			sans-serif;
+		font-size: 20px;
+		color: white;
+		text-transform: uppercase;
+		cursor: pointer;
+		transition: all 0.2s ease-in;
+		&:hover {
+			background-color: rgb(4, 32, 81);
+		}
+	}
+}

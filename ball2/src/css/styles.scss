@@ -1,0 +1,71 @@
+* {
+	box-sizing: border-box;
+}
+
+main {
+	margin: 100px;
+	& #board {
+		float: left;
+		& .line {
+			display: block;
+
+			width: 520px;
+			height: 50px;
+			background-color: rgb(195, 211, 227);
+			&:first-child,
+			&:last-child {
+				height: 10px;
+				& .tile {
+					height: 10px;
+				}
+			}
+			& .wall {
+				background-color: grey;
+				border: 0;
+			}
+			& .trickywall {
+				background-color: yellow;
+				border: 0;
+			}
+		}
+		& .tile {
+			display: block;
+			width: 50px;
+			height: 50px;
+			float: left;
+			border: 2px solid rgb(201, 201, 201);
+			&:first-child,
+			&:last-child {
+				width: 10px;
+				height: 50px;
+			}
+		}
+		& .ball::after {
+			content: "";
+			background-color: red;
+			width: 25px;
+			height: 25px;
+			display: block;
+			border-radius: 50%;
+			position: absolute;
+			margin: 10px;
+		}
+	}
+	& .button {
+		float: left;
+		display: block;
+		padding: 20px;
+		margin-left: 50px;
+		background-color: rgb(16, 59, 134);
+		font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+			sans-serif;
+		font-size: 20px;
+		color: white;
+		text-transform: uppercase;
+		cursor: pointer;
+		transition: all 0.2s ease-in;
+		&:hover {
+			background-color: rgb(4, 32, 81);
+		}
+	}
+}

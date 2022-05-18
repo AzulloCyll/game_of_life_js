@@ -1,0 +1,25 @@
+{
+	"name": "mini-starterkit",
+	"version": "1.0.0",
+	"main": "index.js",
+	"targets": {
+		"main": false
+	},
+	"license": "MIT",
+	"scripts": {
+		"clean:all": "rimraf dist public .parcel-cache",
+		"build:dev": "rimraf dist && cross-env parcel src/html/*.html --open",
+		"build:prod": "rimraf public && cross-env NODE_ENV=production parcel build src/html/*.html --dist-dir public --public-url ./ --no-cache --no-source-maps --no-minify"
+	},
+	"devDependencies": {
+		"@parcel/transformer-sass": "^2.0.0",
+		"autoprefixer": "^10.4.0",
+		"core-js": "^3.19.0",
+		"cross-env": "^7.0.3",
+		"normalize.css": "^8.0.1",
+		"parcel": "^2.0.0",
+		"postcss": "^8.3.11",
+		"regenerator-runtime": "^0.13.9",
+		"rimraf": "^3.0.2"
+	}
+}
