@@ -12,7 +12,7 @@ class Game {
 		this.state = 0;
 		this.startingX = ball.x;
 		this.startingY = ball.y;
-		this.YPositions = this.getYPositions();
+		this.YPositionsArray = this.getYPositions();
 	}
 
 	getYPositions = () => {
@@ -76,20 +76,20 @@ class Game {
 	};
 
 	isBallonYPos = () => {
-		for (let position of this.YPositions) {
+		for (let position of this.YPositionsArray) {
 			if (position.x === this.ball.x && position.y === this.ball.y) {
-				this.changeYPositions();
+				this.updateYPositions();
 				return true;
 			}
 		}
 	};
 
-	changeYPositions = () => {
-		let newArr = this.YPositions.filter((item) => {
+	updateYPositions = () => {
+		let newArr = this.YPositionsArray.filter((item) => {
 			return item.x !== this.ball.x || item.y !== this.ball.y;
 		});
 
-		this.YPositions = [...newArr];
+		this.YPositionsArray = [...newArr];
 	};
 
 	isBallOnStartingPosition() {
